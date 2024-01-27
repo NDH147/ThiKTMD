@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function thirdHighestScore(scores) {
+    if (scores.length < 3) {
+      return "Không đủ điểm để tìm điểm cao thứ 3";
+    }
+
+    let highest = secondHighest = thirdHighest = Number.NEGATIVE_INFINITY;
+    for (let i = 0; i < scores.length; i++) {
+      const score = scores[i];
+      if (score > highest) {
+        thirdHighest = secondHighest;
+        secondHighest = highest;
+        highest = score;
+      } else if (score > secondHighest && score !== highest) {
+        thirdHighest = secondHighest;
+        secondHighest = score;
+      } else if (score > thirdHighest && score !== highest && score !== secondHighest) {
+        thirdHighest = score;
+      }
+    }
+    return thirdHighest;
+  }
+  const diemThi = [85, 90, 78, 92, 88, 95, 79, 84];
+  const result = thirdHighestScore(diemThi);
+  if (typeof result === "number") {
+    console.log("Điểm thi cao thứ 3 là: " + result);
+  } else {
+    console.log(result);
+  }
+</script>
+</body>
+</html>

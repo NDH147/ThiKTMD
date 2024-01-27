@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function tryRemoveFromArray(arr, index) {
+    if (index < 0 || index >= arr.length) {
+      console.log("Index không hợp lệ. Trả về mảng ban đầu.");
+      return arr;
+    }
+    for (let i = index; i < arr.length - 1; i++) {
+      arr[i] = arr[i + 1];
+    }
+    arr.length--;
+    return arr;
+  }
+  const myArray = [1, 2, 3, 4, 5];
+  const indexToRemove = 2;
+
+  const resultArray = tryRemoveFromArray(myArray, indexToRemove);
+
+  console.log("Mảng sau khi loại bỏ:", resultArray);
+
+</script>
+
+</body>
+</html>

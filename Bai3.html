@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function isSubstring(str1, str2) {
+        const len1 = str1.length;
+        const len2 = str2.length;
+
+        if (len1 > len2) {
+            return false;
+        }
+        for (let i = 0; i <= len2 - len1; i++) {
+            let match = true;
+            for (let j = 0; j < len1; j++) {
+                if (str1[j] !== str2[i + j]) {
+                    match = false;
+                    break;
+                }
+            }
+            if (match) {
+                return true;
+            }
+        }
+        return false;
+    }
+    const result1 = isSubstring("abc", "abcdef");
+    console.log(result1);
+
+    const result2 = isSubstring("xyz", "abcdef");
+    console.log(result2);
+
+</script>
+</body>
+</html>
